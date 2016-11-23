@@ -1,15 +1,14 @@
 'use strict'
 import * as lf from 'lovefield'
-import { TaskId, SubtaskId } from '../teambition'
-import database from '../storage/Database'
+import { TeambitionTypes, Database } from '../index'
 
 export interface SubtaskSchema {
-  _id: SubtaskId
+  _id: TeambitionTypes.SubtaskId
   name: string
-  taskId: string
+  taskId: TeambitionTypes.TaskId
 }
 
-database.defineTable('Subtask', {
+export default Database.defineSchema('Subtask', {
   _id: {
     type: lf.Type.STRING,
     primaryKey: true

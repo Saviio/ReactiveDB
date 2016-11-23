@@ -1,14 +1,12 @@
 'use strict'
 import * as lf from 'lovefield'
-import { ProjectId } from '../teambition'
-import database from '../storage/Database'
+import { TeambitionTypes, Database } from '../index'
 
 export interface ProjectSchema extends lf.schema.Table {
-  _id: ProjectId
+  _id: TeambitionTypes.ProjectId
   name: string
 }
-
-database.defineTable('Project', {
+export default Database.defineSchema('Project', {
   _id: {
     type: lf.Type.STRING,
     primaryKey: true
